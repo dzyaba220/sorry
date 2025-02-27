@@ -93,8 +93,8 @@
     const noButton = document.getElementById("no");
     const yesButton = document.getElementById("yes");
     const popUp = document.getElementById("pop-up");
-    
-    noButton.addEventListener("mouseenter", () => {
+
+    const moveButton = () => {
         const maxX = window.innerWidth - noButton.offsetWidth;
         const maxY = window.innerHeight - noButton.offsetHeight;
         
@@ -104,8 +104,11 @@
         noButton.style.position = "absolute";
         noButton.style.left = `${randomX}px`;
         noButton.style.top = `${randomY}px`;
-    });
-
+    };
+    
+    noButton.addEventListener("mouseenter", moveButton);
+    noButton.addEventListener("touchstart", moveButton);
+            
     yesButton.addEventListener(("click"), () => {
         popUp.classList.remove("hide");
     })
